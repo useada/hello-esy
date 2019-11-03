@@ -1,0 +1,10 @@
+(executable (name RunHelloTests)
+    (modules (:standard \ HelloTestExePesyModules))
+    (public_name RunHelloTests.exe) (libraries hello.testExe.pesy-modules)
+    (flags -open HelloTestExePesyModules))
+(library (public_name hello.testExe.pesy-modules)
+    (name HelloTestExePesyModules) (modules HelloTestExePesyModules)
+    (libraries hello.test))
+(rule
+    (with-stdout-to HelloTestExePesyModules.re
+        (run echo "module Test = HelloTest;")))

@@ -1,0 +1,8 @@
+(executable (name HelloApp) (modules (:standard \ HelloBinPesyModules))
+    (public_name HelloApp.exe) (libraries hello.bin.pesy-modules)
+    (flags -open HelloBinPesyModules))
+(library (public_name hello.bin.pesy-modules) (name HelloBinPesyModules)
+    (modules HelloBinPesyModules) (libraries hello.library))
+(rule
+    (with-stdout-to HelloBinPesyModules.re
+        (run echo "module Library = HelloLibrary;")))

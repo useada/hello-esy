@@ -1,0 +1,11 @@
+(library (name HelloLibrary) (public_name hello.library)
+    (modules (:standard \ HelloLibraryPesyModules))
+    (libraries hello.library.pesy-modules)
+    (flags -open HelloLibraryPesyModules))
+(library (public_name hello.library.pesy-modules)
+    (name HelloLibraryPesyModules) (modules HelloLibraryPesyModules)
+    (libraries console.lib pastel.lib))
+(rule
+    (with-stdout-to HelloLibraryPesyModules.re
+        (run echo  "module Console = Console;\
+                  \nmodule Pastel = Pastel;")))

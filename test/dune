@@ -1,0 +1,10 @@
+(library (name HelloTest) (public_name hello.test)
+    (modules (:standard \ HelloTestPesyModules))
+    (libraries hello.test.pesy-modules)
+    (flags -linkall -g -w -9 -open HelloTestPesyModules))
+(library (public_name hello.test.pesy-modules) (name HelloTestPesyModules)
+    (modules HelloTestPesyModules) (libraries hello.library rely.lib))
+(rule
+    (with-stdout-to HelloTestPesyModules.re
+        (run echo  "module Library = HelloLibrary;\
+                  \nmodule Rely = Rely;")))
