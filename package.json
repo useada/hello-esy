@@ -43,7 +43,11 @@
     },
     "bin": {
       "imports": [
-        "Library = require('hello/library')"
+        "Library = require('hello/library')",
+        "LwtUnix = require('lwt/unix')",
+        "Lwt = require('lwt')",
+        "Cohttp = require('cohttp')",
+        "Cohttp_lwt_unix = require('cohttp-lwt-unix')"
       ],
       "bin": {
         "HelloApp.exe": "HelloApp.re"
@@ -62,9 +66,18 @@
     "@reason-native/pastel": "*",
     "@reason-native/rely": "*",
     "@esy-ocaml/reason": "*",
+    "@opam/ssl": "*",
+    "@opam/lwt": "*",
+    "@opam/lwt_ssl": "*",
+    "@opam/lwt_ppx": "*",
+    "@opam/cohttp": "*",
+    "@opam/cohttp-lwt-unix": "*",
+    "@opam/logs": "*",
+    "@opam/fmt": "*",
     "refmterr": "*",
     "ocaml": "~4.7.0"
   },
+  "resolutions": {},
   "devDependencies": {
     "@opam/merlin": "*",
     "ocaml": "~4.7.0",

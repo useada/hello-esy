@@ -1,1 +1,1 @@
-HTTP_PROXY=http://101.231.104.82:80 esy install
+HTTP_PROXY=http://localhost:1087 esy install --verbosity=debug

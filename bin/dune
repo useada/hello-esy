@@ -2,7 +2,13 @@
     (public_name HelloApp.exe) (libraries hello.bin.pesy-modules)
     (flags -open HelloBinPesyModules))
 (library (public_name hello.bin.pesy-modules) (name HelloBinPesyModules)
-    (modules HelloBinPesyModules) (libraries hello.library))
+    (modules HelloBinPesyModules)
+    (libraries cohttp cohttp-lwt-unix hello.library lwt lwt.unix))
 (rule
     (with-stdout-to HelloBinPesyModules.re
-        (run echo "module Library = HelloLibrary;")))
+        (run echo
+             "module Library = HelloLibrary;\
+            \nmodule LwtUnix = Lwt_unix;\
+            \nmodule Lwt = Lwt;\
+            \nmodule Cohttp = Cohttp;\
+            \nmodule Cohttp_lwt_unix = Cohttp_lwt_unix;")))
